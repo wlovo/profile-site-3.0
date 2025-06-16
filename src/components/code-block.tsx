@@ -19,9 +19,9 @@ interface CodeBlockProps {
 
 export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [] }: CodeBlockProps) {
   return (
-    <div className="bg-slate-900 rounded-lg shadow-xl overflow-hidden w-full max-w-2xl font-mono text-sm mx-auto">
+    <div className="bg-slate-100 dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden w-full max-w-2xl font-mono text-sm mx-auto">
       {/* Header Bar */}
-      <div className="bg-slate-700 px-4 py-2 flex items-center justify-between">
+      <div className="bg-slate-200 dark:bg-slate-700 px-4 py-2 flex items-center justify-between">
         <div className="flex items-center">
           {/* Window Controls */}
           <div className="flex space-x-1.5 mr-3">
@@ -32,7 +32,7 @@ export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [
           {/* Tabs */}
           <div className="flex">
             {activeFileName && (
-              <button className="bg-slate-800 text-slate-100 py-1.5 px-4 rounded-t-md focus:outline-none text-xs">
+              <button className="bg-slate-300 dark:bg-slate-800 text-slate-500 dark:text-slate-100 py-1.5 px-4 rounded-t-md focus:outline-none text-xs">
                 {activeFileName}
               </button>
             )}
@@ -40,7 +40,7 @@ export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [
               inactiveFiles.map((file) => (
                 <button
                   key={file}
-                  className="text-slate-400 hover:text-slate-100 py-1.5 px-4 focus:outline-none text-xs rounded-t-md">
+                  className="text-slate-400 dark:text-slate-400 hover:text-slate-500 dark:hover:text-slate-100 py-1.5 px-4 focus:outline-none text-xs rounded-t-md">
                   {file}
                 </button>
               ))}
