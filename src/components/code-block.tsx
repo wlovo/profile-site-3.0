@@ -6,7 +6,6 @@ interface CodeSegment {
 }
 
 interface CodeLine {
-  id: string; // Unique identifier for the line, for React key
   segments: CodeSegment[]; // Array of text segments for multi-color lines
   indentationLevel: number; // Number of indent units (e.g., 0, 1, 2)
 }
@@ -51,7 +50,7 @@ export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [
       {/* Code Area */}
       <div className="px-2 pb-4 pt-2">
         {codeLines.map((line, index) => (
-          <div key={line.id} className="flex items-start leading-relaxed">
+          <div key={`line${index}`} className="flex items-start leading-relaxed">
             <span className="text-gray-500 w-12 text-right pr-3 select-none pt-px">
               {(index + 1).toString().padStart(2, '0')}
             </span>
