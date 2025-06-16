@@ -24,9 +24,9 @@ export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [
         <div className="flex items-center">
           {/* Window Controls */}
           <div className="flex space-x-1.5 mr-3">
-            <div className="w-3 h-3 bg-red-600 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-600 rounded-full"></div>
+            <div className="w-3 h-3 bg-red-600 hover:bg-red-400 rounded-full transition-colors duration-150"></div>
+            <div className="w-3 h-3 bg-yellow-500 hover:bg-yellow-300 rounded-full transition-colors duration-150"></div>
+            <div className="w-3 h-3 bg-green-600 hover:bg-green-400 rounded-full transition-colors duration-150"></div>
           </div>
           {/* Tabs */}
           <div className="flex">
