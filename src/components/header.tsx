@@ -8,6 +8,14 @@ import {
 import Link from 'next/link';
 import { ModeToggle } from './theme-toggle';
 
+// Define navLinks directly in this module
+const navLinks = [
+  { href: '/', text: 'Home' },
+  { href: '/about', text: 'About' },
+  { href: '/projects', text: 'Projects' },
+  { href: '/contact', text: 'Contact' },
+];
+
 export default function Header() {
   return (
     <div id="header" className="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900">
@@ -17,26 +25,13 @@ export default function Header() {
           {' '}
           {/* Hide on small screens, flex on sm and up */}
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="/">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/about">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/projects">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Projects</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/contact">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+            {navLinks.map((link) => (
+              <NavigationMenuItem key={link.href}>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                  <Link href={link.href}>{link.text}</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
         {/* Placeholder for mobile menu button - to be implemented next */}
