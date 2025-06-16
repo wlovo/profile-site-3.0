@@ -11,15 +11,14 @@ import { ModeToggle } from './theme-toggle';
 // Define navLinks directly in this module
 const navLinks = [
   { href: '/', text: 'Home' },
-  { href: '/about', text: 'About' },
   { href: '/projects', text: 'Projects' },
-  { href: '/contact', text: 'Contact' },
+  { href: '/about', text: 'About' },
 ];
 
 export default function Header() {
   return (
     <div id="header" className="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900">
-      <h1 className="text-xl font-bold">My App</h1>
+      <h1 className="text-xl font-bold">William Lovo</h1>
       <div className="flex items-center space-x-4">
         <NavigationMenu className="hidden sm:flex">
           {' '}
