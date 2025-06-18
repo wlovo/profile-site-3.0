@@ -1,24 +1,33 @@
-// filepath: /Users/wlovo/Development/profile-site-3.0/src/components/hero.tsx
-
-interface CodeSegment {
+export interface CodeSegment {
   text: string;
-  colorClass: string; // Tailwind CSS color class for the text
+  colorClass?: string; // Tailwind CSS color class for the text
 }
 
-interface CodeLine {
+export interface CodeLine {
   segments: CodeSegment[]; // Array of text segments for multi-color lines
-  indentationLevel: number; // Number of indent units (e.g., 0, 1, 2)
+  indentationLevel?: number; // Number of indent units (e.g., 0, 1, 2)
+}
+
+interface CodeBlockOptions {
+  enableLineNumbers?: boolean; // Whether to show line numbers
+  enableBlinkCursor?: boolean; // Whether to enable blinking cursor effect
 }
 
 interface CodeBlockProps {
   codeLines: CodeLine[];
   activeFileName?: string;
   inactiveFiles?: string[];
+  options?: CodeBlockOptions;
 }
 
-export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [] }: CodeBlockProps) {
+export default function CodeBlock({
+  codeLines,
+  activeFileName,
+  inactiveFiles = [],
+  options = { enableLineNumbers: true },
+}: CodeBlockProps) {
   return (
-    <div className="bg-slate-100 dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden w-full max-w-2xl font-mono text-sm mx-auto">
+    <div className="bg-slate-100 dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden w-full min-w-md max-w-4xl font-mono text-sm mx-auto">
       {/* Header Bar */}
       <div className="bg-slate-200 dark:bg-slate-700 px-4 py-2 flex items-center justify-between">
         <div className="flex items-center">
@@ -28,6 +37,7 @@ export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [
             <div className="w-3 h-3 bg-yellow-500 hover:bg-yellow-300 rounded-full transition-colors duration-150"></div>
             <div className="w-3 h-3 bg-green-600 hover:bg-green-400 rounded-full transition-colors duration-150"></div>
           </div>
+
           {/* Tabs */}
           <div className="flex">
             {activeFileName && (
@@ -52,14 +62,14 @@ export default function CodeBlock({ codeLines, activeFileName, inactiveFiles = [
         {codeLines.map((line, index) => (
           <div key={`line${index}`} className="flex items-start leading-relaxed">
             <span className="text-gray-500 w-12 text-right pr-3 select-none pt-px">
-              {(index + 1).toString().padStart(2, '0')}
+              {options.enableLineNumbers && (index + 1).toString().padStart(2, '0')}
             </span>
             <pre
               className="flex-1 whitespace-pre-wrap break-words" // Removed line.colorClass here
-              style={{ paddingLeft: `${line.indentationLevel * 1}rem` }} // 1rem (16px) per indent level
+              style={{ paddingLeft: `${(line.indentationLevel || 0) * 1}rem` }} // 1rem (16px) per indent level
             >
               {line.segments.map((segment, segmentIndex) => (
-                <span key={segmentIndex} className={segment.colorClass}>
+                <span key={segmentIndex} className={segment.colorClass || 'text-slate-300'}>
                   {segment.text}
                 </span>
               ))}

@@ -20,6 +20,7 @@ import { Menu } from 'lucide-react'; // Import Menu icon
 const navLinks = [
   { href: '/', text: 'Home' },
   { href: '/projects', text: 'Projects' },
+  { href: '/education', text: 'Education' },
   { href: '/about', text: 'About' },
 ];
 
