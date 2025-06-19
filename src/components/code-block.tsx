@@ -69,7 +69,7 @@ export default function CodeBlock({
               style={{ paddingLeft: `${(line.indentationLevel || 0) * 1}rem` }} // 1rem (16px) per indent level
             >
               {line.segments.map((segment, segmentIndex) => (
-                <span key={segmentIndex} className={segment.colorClass || 'text-slate-300'}>
+                <span key={segmentIndex} className={segment.colorClass}>
                   {segment.text}
                 </span>
               ))}
