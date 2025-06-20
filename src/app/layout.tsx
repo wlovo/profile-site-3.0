@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
-          <main id="main" className="flex flex-col items-center flex-grow py-8 gap-16 sm:py-8 overflow-y-auto">
+          <main id="main" className="flex flex-col items-center flex-grow pt-8 sm:pt-8 gap-8 overflow-y-auto">
             {children}
           </main>
           <Footer />
