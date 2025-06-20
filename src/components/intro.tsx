@@ -4,6 +4,7 @@ import CodeBlock from '@/components/code-block';
 import moment from 'moment';
 import { line, simpleLine } from '@/lib/utils';
 import React from 'react';
+import Profile from './profile';
 
 const experienceDuration = moment.duration(moment().diff(moment('2019-06-01')));
 
@@ -28,6 +29,7 @@ const codeLines = [
   line(['title: ', ["'Senior Software Engineer'", 'text-blue-600'], ','], 3),
   simpleLine('},', 2),
   simpleLine('},', 1),
+
   simpleLine('}'),
 ];
 
@@ -35,7 +37,7 @@ export default function Intro() {
   return (
     <React.Fragment>
       <CodeBlock codeLines={codeLines} activeFileName="intro" inactiveFiles={['next-prospect']} />
-      <div></div>
+      <Profile />
     </React.Fragment>
   );
 }
