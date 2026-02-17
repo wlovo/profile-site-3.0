@@ -20,10 +20,9 @@ const experiences: Experience[] = [
       'Co-designed an orchestration layer API and co-developed a data pipeline to support the migration of user accounts from Discover Financial Services.',
       'Led the migration of self-hosted secrets to AWS Secrets Manager for the team and across the Consumer Identity (CI) organization.',
       'Engineered a high-scale migration to serverless containers (Fargate), optimizing resource utilization to achieve a 30% reduction in costs and seamless auto-scaling capabilities.',
+      'Contributed to the development and deployment of Passkeys support at Capital One, enabling passwordless authentication with ~1 million passkeys created by customers. Implementation also used for enhanced authentication for financial transactions.',
       'Built a reusable CLI tool to automated production secret migration, authored a step-by-step guide for all CI teams, supported 5+ teams directly with 10+ pull requests, and presented the strategy to the organization.',
-      'Contributed to the development and deployment of Passkeys support at Capital One, enabling passwordless authentication with over 1 million passkeys created by customers. Implementation also used for enhanced authentication for financial transactions.',
       'Contributed to Long Lived Credentials (LLC) implementation to reduce customer friction with low-risk transactions and reduce fraud through on-demand credential revocation by customers and agents.',
-      'Collaborated with teams within and outside the CI organization to improve deployment and monitoring mechanisms used by all teams at Capital One.',
       'Delivered presentations on new technologies, contributed work, and strategies to be used company-wide, which included a conference talk on the release and rollout of Passkeys.',
     ],
     tags: [
