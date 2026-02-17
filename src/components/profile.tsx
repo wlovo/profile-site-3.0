@@ -19,6 +19,7 @@ const experiences: Experience[] = [
       'Led creation of an internal data service API as lead designer and primary contributor, backed by a DynamoDB table with a purpose-built data schema. Deployed to production to support 500+ transactions per second.',
       'Co-designed an orchestration layer API and co-developed a data pipeline to support the migration of user accounts from Discover Financial Services.',
       'Led the migration of self-hosted secrets to AWS Secrets Manager for the team and across the Consumer Identity (CI) organization.',
+      'Engineered a high-scale migration to serverless containers (Fargate), optimizing resource utilization to achieve a 30% reduction in costs and seamless auto-scaling capabilities.',
       'Built a reusable CLI tool to automated production secret migration, authored a step-by-step guide for all CI teams, supported 5+ teams directly with 10+ pull requests, and presented the strategy to the organization.',
       'Contributed to the development and deployment of Passkeys support at Capital One, enabling passwordless authentication with over 1 million passkeys created by customers. Implementation also used for enhanced authentication for financial transactions.',
       'Contributed to Long Lived Credentials (LLC) implementation to reduce customer friction with low-risk transactions and reduce fraud through on-demand credential revocation by customers and agents.',
