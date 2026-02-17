@@ -27,7 +27,7 @@ export default function CodeBlock({
   options = { enableLineNumbers: true },
 }: CodeBlockProps) {
   return (
-    <div className="bg-slate-100 dark:bg-slate-900 rounded-lg shadow-xl overflow-auto w-full min-w-md max-w-4xl font-mono text-sm mx-auto">
+    <div className="bg-slate-100 dark:bg-slate-900 rounded-lg shadow-xl overflow-x-auto shrink-0 w-full max-w-4xl font-mono text-sm mx-auto">
       {/* Header Bar */}
       <div className="bg-slate-200 dark:bg-slate-700 px-4 py-2 flex items-center justify-between">
         <div className="flex items-center">

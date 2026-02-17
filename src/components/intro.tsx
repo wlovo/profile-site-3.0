@@ -1,43 +1,31 @@
 'use client';
 
 import CodeBlock from '@/components/code-block';
-import moment from 'moment';
+import type { CodeLine } from '@/components/code-block';
 import { line, simpleLine } from '@/lib/utils';
-import React from 'react';
-import Profile from './profile';
+import moment from 'moment';
+import { useMemo } from 'react';
 
-const experienceDuration = moment.duration(moment().diff(moment('2019-06-01')));
-
-const codeLines = [
-  simpleLine('{'),
-
-  // Name
-  line(['name: ', ["'William H. Lovo',", 'text-sky-500']], 1),
-
-  // Experience
-  simpleLine('experience: {', 1),
-  line(
-    [
-      'time: ',
-      [`'${experienceDuration.years()} years and ${experienceDuration.months()} months'`, 'text-purple-500'],
-      ',',
-    ],
-    2
-  ),
-  simpleLine('current: {', 2),
-  line(['company: ', ["'Capital One'", 'text-blue-600'], ','], 3),
-  line(['title: ', ["'Senior Software Engineer'", 'text-blue-600'], ','], 3),
-  simpleLine('},', 2),
-  simpleLine('},', 1),
-
-  simpleLine('}'),
-];
+function buildCodeLines(experienceText: string): CodeLine[] {
+  return [
+    simpleLine('{'),
+    line(['name: ', ["'William H. Lovo',", 'text-sky-500']], 1),
+    simpleLine('experience: {', 1),
+    line(['time: ', [`'${experienceText}'`, 'text-purple-500'], ','], 2),
+    simpleLine('current: {', 2),
+    line(['company: ', ["'Capital One'", 'text-blue-600'], ','], 3),
+    line(['title: ', ["'Senior Software Engineer'", 'text-blue-600'], ','], 3),
+    simpleLine('},', 2),
+    simpleLine('},', 1),
+    simpleLine('}'),
+  ];
+}
 
 export default function Intro() {
-  return (
-    <React.Fragment>
-      <CodeBlock codeLines={codeLines} activeFileName="intro" inactiveFiles={['next-prospect']} />
-      <Profile />
-    </React.Fragment>
-  );
+  const codeLines = useMemo(() => {
+    const duration = moment.duration(moment().diff(moment('2019-06-01')));
+    return buildCodeLines(`${duration.years()} years and ${duration.months()} months`);
+  }, []);
+
+  return <CodeBlock codeLines={codeLines} activeFileName="intro" inactiveFiles={['next-prospect']} />;
 }
