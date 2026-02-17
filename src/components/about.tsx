@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 
 const socialLinks = [
@@ -11,11 +12,21 @@ export default function About() {
       <h2 className="text-2xl font-bold mb-6">About Me</h2>
 
       <div className="space-y-4 text-muted-foreground leading-relaxed">
-        <p>
-          Hi, I&apos;m William — a software engineer based in the D.C. metro area. I currently work at Capital One as a
-          Senior Software Engineer. Before that, I spent several years at Amazon Web Services building developer tooling
-          and automation.
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center items-start gap-5">
+          <Image
+            src="/profile-picture.png"
+            alt="William Lovo"
+            width={128}
+            height={128}
+            className="rounded-xl border border-border object-cover size-32 shrink-0 opacity-90"
+            priority
+          />
+          <p>
+            Hi, I&apos;m William — a software engineer based in the D.C. metro area. I currently work at Capital One as
+            a Senior Software Engineer. Before that, I spent several years at Amazon Web Services building developer
+            tooling and automation.
+          </p>
+        </div>
         <p>
           I graduated from James Madison University with a B.S. in Computer Science (Summa Cum Laude) with a focus on
           machine learning research. My honors thesis explored strategies for detecting credit card fraud.
