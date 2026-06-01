@@ -4,50 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-
-interface Project {
-  name: string;
-  description: string;
-  links: { label: string; href: string }[];
-  tags: string[];
-  image?: string;
-}
-
-const projects: Project[] = [
-  {
-    name: 'Personal Profile Website',
-    description:
-      'A simple, minimalist, and responsive portfolio website. Built with Next.js, React, TypeScript, and Tailwind CSS. Showcases professional experience, projects, and education.',
-    links: [{ label: 'GitHub', href: 'https://github.com/wlovo/profile-site-3.0' }],
-    tags: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
-    image: '/projects/profile-site.png',
-  },
-  {
-    name: 'Blog App',
-    description:
-      'A full-stack blog application built with React and Express. Showcases the request/response process through a RESTful API and CRUD operations on a modeled MySQL database.',
-    links: [
-      { label: 'GitHub (React)', href: 'https://github.com/wlovo/blog-app-frontend' },
-      { label: 'GitHub (Node)', href: 'https://github.com/wlovo/blog-app-backend' },
-    ],
-    tags: ['JavaScript', 'Node.js', 'React', 'Redux', 'Bootstrap', 'Sequelize', 'Express', 'MySQL'],
-    image: '/projects/blog-app.png',
-  },
-  {
-    name: 'Detecting Credit Card Fraud',
-    description:
-      'Research paper analyzing modern strategies for detecting credit card fraud and proposing additional strategies to improve detection using machine learning techniques.',
-    links: [{ label: 'JMU Scholarly Commons', href: 'https://commons.lib.jmu.edu/honors202029/86/' }],
-    tags: ['Python', 'Keras', 'TensorFlow', 'Machine Learning', 'Anomaly Detection', 'Data Science'],
-    image: '/projects/credit-card-fraud.png',
-  },
-  {
-    name: "What's Next?",
-    description: 'Check out my GitHub for more projects and things I\'m working on.',
-    links: [{ label: 'My GitHub', href: 'https://github.com/wlovo' }],
-    tags: [],
-  },
-];
+import type { Project } from '@/types';
 
 function ProjectCard({ project }: { project: Project }) {
   const [open, setOpen] = useState(false);
@@ -113,7 +70,11 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export default function Projects() {
+interface ProjectsProps {
+  projects: Project[];
+}
+
+export default function Projects({ projects }: ProjectsProps) {
   return (
     <div className="w-full max-w-4xl px-6 pb-8">
       <h2 className="text-2xl font-bold mb-6">Projects</h2>

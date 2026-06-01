@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
+import type { About } from '@/types';
 
-const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/wlovo' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/william-lovo' },
-];
+interface AboutProps {
+  about: About;
+}
 
-export default function About() {
+export default function About({ about }: AboutProps) {
+  const [firstParagraph, ...restParagraphs] = about.bio;
+
   return (
     <div className="w-full max-w-3xl px-6 pb-8">
       <h2 className="text-2xl font-bold mb-6">About Me</h2>
@@ -14,33 +16,24 @@ export default function About() {
       <div className="space-y-4 text-muted-foreground leading-relaxed">
         <div className="flex flex-col sm:flex-row sm:items-center items-start gap-5">
           <Image
-            src="/profile-picture.png"
-            alt="William Lovo"
+            src={about.image}
+            alt={about.imageAlt}
             width={128}
             height={128}
             className="rounded-xl border border-border object-cover size-32 shrink-0 opacity-90"
             priority
           />
-          <p>
-            Hi, I&apos;m William — a software engineer based in the D.C. metro area. I currently work at Capital One as
-            a Senior Software Engineer. Before that, I spent several years at Amazon Web Services building developer
-            tooling and automation.
-          </p>
+          <p>{firstParagraph}</p>
         </div>
-        <p>
-          I graduated from James Madison University with a B.S. in Computer Science (Summa Cum Laude) with a focus on
-          machine learning research. My honors thesis explored strategies for detecting credit card fraud.
-        </p>
-        <p>
-          Outside of work, I enjoy building side projects, exploring new technologies, and continuously learning. This
-          site is one of those projects — built with Next.js, React, TypeScript, and Tailwind CSS.
-        </p>
+        {restParagraphs.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
       </div>
 
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-3">Find Me Online</h3>
         <div className="flex gap-4">
-          {socialLinks.map((link) => (
+          {about.social.map((link) => (
             <a
               key={link.label}
               href={link.href}

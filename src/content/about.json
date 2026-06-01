@@ -1,0 +1,13 @@
+{
+  "image": "/profile-picture.png",
+  "imageAlt": "William Lovo",
+  "bio": [
+    "Hi, I'm William — a software engineer based in the D.C. metro area. I currently work at Capital One as a Senior Software Engineer. Before that, I spent several years at Amazon Web Services building developer tooling and automation.",
+    "I graduated from James Madison University with a B.S. in Computer Science (Summa Cum Laude) with a focus on machine learning research. My honors thesis explored strategies for detecting credit card fraud.",
+    "Outside of work, I enjoy building side projects, exploring new technologies, and continuously learning. This site is one of those projects — built with Next.js, React, TypeScript, and Tailwind CSS."
+  ],
+  "social": [
+    { "label": "GitHub", "href": "https://github.com/wlovo" },
+    { "label": "LinkedIn", "href": "https://linkedin.com/in/william-lovo" }
+  ]
+}

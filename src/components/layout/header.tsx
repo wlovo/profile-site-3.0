@@ -26,10 +26,14 @@ const navLinks = [
   { href: '/about', text: 'About' },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  name: string;
+}
+
+export default function Header({ name }: HeaderProps) {
   return (
     <div id="header" className="flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900">
-      <h1 className="text-xl font-bold">William Lovo</h1>
+      <h1 className="text-xl font-bold">{name}</h1>
       <div className="flex items-center space-x-4">
         {/* Desktop Navigation Menu */}
         <NavigationMenu className="hidden sm:flex">

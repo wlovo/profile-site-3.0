@@ -1,0 +1,29 @@
+{
+  "school": "James Madison University",
+  "degree": "B.S. Computer Science",
+  "gpa": "3.94",
+  "location": "Harrisonburg, VA",
+  "date": "May 2020",
+  "info": [
+    { "label": "Minors", "value": "Mathematics, Data Analytics" },
+    { "label": "Awards", "value": "President's List, Madison Forever Scholarship" },
+    { "label": "Honors", "value": "Summa Cum Laude, Honors College, Upsilon Pi Epsilon" }
+  ],
+  "coursework": [
+    "Algorithms Analysis and Design",
+    "Software Analysis and Design",
+    "Software Engineering",
+    "Database Systems",
+    "Web-based Information Systems",
+    "Parallel and Distributed Systems",
+    "Computer Systems",
+    "Machine Learning"
+  ],
+  "research": {
+    "description": "Honors thesis on detecting credit card fraud using machine learning techniques. Published and presented at ACM SE 2020.",
+    "links": [
+      { "label": "ACM Digital Library", "href": "https://dl.acm.org/doi/10.1145/3323994.3369892" },
+      { "label": "JMU Scholarly Commons", "href": "https://commons.lib.jmu.edu/honors202029/86/" }
+    ]
+  }
+}
